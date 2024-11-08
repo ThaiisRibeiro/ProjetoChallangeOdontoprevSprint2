@@ -64,28 +64,26 @@ O sistema segue os princípios da Clean Architecture, garantindo código organiz
 
 2. **Configuração do Banco de Dados:**
    - Crie o banco de dados no Oracle.
-   - Configure a string de conexão no arquivo `appsettings.json` da aplicação:
-     ```json
-     "ConnectionStrings": {
-       "DefaultConnection": "Data Source=Oracle_DB;User Id=usuario;Password=senha;"
-     }
-     ```
+   - Configure a string de conexão no arquivo `Context` e `Program`  da aplicação:
+     
+        private string GetStringConectionConfig()
+        {
+            string strCon = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=oracle.fiap.com.br)(PORT=1521))) (CONNECT_DATA=(SERVER=DEDICATED)(SID=ORCL)));User Id=;Password=;";
+            return strCon;
+        }     ```
 
 3. **Aplicação das Migrations:**
    - Execute as migrations para criar as tabelas necessárias:
      ```bash
-     dotnet ef database update
+    Add-Migration Nome_do_seu_BD
+    Update-Database Nome_do_seu_BD
      ```
 
-4. **Executar a Aplicação:**
+5. **Executar a Aplicação:**
    - Inicie o servidor com:
      ```bash
      dotnet run
      ```
-
-5. **Acessar a Aplicação:**
-   - Acesse a aplicação via navegador no endereço `http://localhost:5000`.
-
 ---
 
 ## 🌐 Interface
