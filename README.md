@@ -62,8 +62,8 @@ O sistema segue os princípios da Clean Architecture, garantindo código organiz
 
 1. **Clone o Repositório:**
    ```bash
-   git clone https://github.com/usuario/odontoprev-sistema-fraudes.git
-   cd odontoprev-sistema-fraudes
+   git clone https://github.com/ThaiisRibeiro/ProjetoChallangeOdontoprevSprint2
+   cd ProjetoChallangeOdontoprevSprint2
    ```
 
 2. **Configuração do Banco de Dados:**
