@@ -91,11 +91,6 @@ O sistema segue os princípios da Clean Architecture, garantindo código organiz
      dotnet run
      ```
 
-## 🌐 Interface
-- **Interface de Monitoramento de Fraudes**: Exibe em tempo real informações sobre comportamentos suspeitos.
-- **Interface de Configuração de Alertas**: Permite a configuração de alertas automáticos para atividades suspeitas.
-- **Interface de Controle de Acesso**: Login e gestão de permissões de usuários.
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
