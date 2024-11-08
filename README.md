@@ -19,7 +19,7 @@ As funcionalidades principais incluem:
 ### 🛠️ Requisitos Não Funcionais
 - Uso de **Clean Architecture** para modularidade e baixo acoplamento.
 - Tratamento de erros e validação de dados.
-- Responsividade e eficiência no processamento de fraudes.
+
 
 ## 🏛️ Desenho da Arquitetura
 ### Clean Architecture
