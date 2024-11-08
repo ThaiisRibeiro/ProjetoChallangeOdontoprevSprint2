@@ -56,6 +56,10 @@ O sistema segue os princípios da Clean Architecture, garantindo código organiz
 
 ### Passo a Passo
 
+# OdontoPrev - Sistema de Gerenciamento e Detecção de Fraudes
+
+## Instruções de Instalação e Configuração
+
 1. **Clone o Repositório:**
    ```bash
    git clone https://github.com/usuario/odontoprev-sistema-fraudes.git
@@ -64,27 +68,28 @@ O sistema segue os princípios da Clean Architecture, garantindo código organiz
 
 2. **Configuração do Banco de Dados:**
    - Crie o banco de dados no Oracle.
-   - Configure a string de conexão no arquivo `Context` e `Program`  da aplicação:
+   - Configure a string de conexão no arquivo `Context` e `Program` da aplicação:
      
-        private string GetStringConectionConfig()
-        {
-            string strCon = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=oracle.fiap.com.br)(PORT=1521))) (CONNECT_DATA=(SERVER=DEDICATED)(SID=ORCL)));User Id=;Password=;";
-            return strCon;
-        }     ```
+     ```csharp
+     private string GetStringConectionConfig()
+     {
+         string strCon = "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=oracle.fiap.com.br)(PORT=1521))) (CONNECT_DATA=(SERVER=DEDICATED)(SID=ORCL)));User Id=;Password=;";
+         return strCon;
+     }
+     ```
 
 3. **Aplicação das Migrations:**
    - Execute as migrations para criar as tabelas necessárias:
      ```bash
-    Add-Migration Nome_do_seu_BD
-    Update-Database Nome_do_seu_BD
+     Add-Migration Nome_do_seu_BD
+     Update-Database Nome_do_seu_BD
      ```
 
-5. **Executar a Aplicação:**
+4. **Executar a Aplicação:**
    - Inicie o servidor com:
      ```bash
      dotnet run
      ```
----
 
 ## 🌐 Interface
 - **Interface de Monitoramento de Fraudes**: Exibe em tempo real informações sobre comportamentos suspeitos.
