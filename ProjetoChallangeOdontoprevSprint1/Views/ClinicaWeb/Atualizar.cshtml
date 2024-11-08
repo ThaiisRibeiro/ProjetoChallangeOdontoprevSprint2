@@ -1,0 +1,35 @@
+﻿@model Domain.Entities.Clinica
+@{
+    ViewData["Title"] = "Criar clinica";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar Clinica</h1>
+</div>
+
+
+<form asp-controller="ClinicaWeb" asp-action="Atualizar" method="post">
+
+    <input type="hidden" asp-for="id_clinica" />
+    <div class="form-group">
+        <label for="nome" class="form-label">Cnpj</label>
+        <input type="text" asp-for="cnpj" class="form-control" placeholder="Digite Cnpj">
+        @Html.ValidationMessageFor(x => x.cnpj)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Endereco</label>
+        <input type="text" asp-for="endereco" class="form-control" placeholder="Digite o endereço da Clinica">
+        @Html.ValidationMessageFor(x => x.endereco)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Nome da clinica</label>
+        <input type="text" asp-for="nome_clinica" class="form-control" placeholder="Digite o nome da clinica">
+        @Html.ValidationMessageFor(x => x.nome_clinica)
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="ClinicaWeb" role="button">Voltar</a>
+
+</form>

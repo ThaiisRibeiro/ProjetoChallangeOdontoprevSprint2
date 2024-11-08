@@ -1,0 +1,78 @@
+﻿@model List<Domain.Entities.Dentista>
+@{
+    ViewData["Title"] = "Listagem de Dentista";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" asp-controller="DentistaWeb" asp-action="Adcionar" role="button">Adicionar novo dentista</a>
+    </div>
+
+    <br />
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <br />
+
+    <h1 class="display-4">Listagem de dentista</h1>
+
+    <table id="table-Paciente" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Cpf</th>
+                <th scope="col">Numero CRO</th>
+                <th scope="col">Nome dentista</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Email dentista</th>
+               
+               
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var Dentista in Model)
+                {
+                    <tr>
+                        <th scope="row">@Dentista.id_dentista</th>
+                        <td>@Dentista.cpf</td>
+                        <td>@Dentista.numero_cro</td>
+                        <td>@Dentista.nome</td>
+                        <td>@Dentista.telefone</td>
+                        <td>@Dentista.email</td>
+                     
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Atualizar" asp-controller="DentistaWeb" asp-route-id="@Dentista.id_dentista" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="Excluir" asp-controller="DentistaWeb" asp-route-id="@Dentista.id_dentista" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum Paciente encontrado</td></tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

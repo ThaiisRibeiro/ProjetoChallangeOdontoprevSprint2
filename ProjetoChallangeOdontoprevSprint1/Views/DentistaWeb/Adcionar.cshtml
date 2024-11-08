@@ -1,0 +1,48 @@
+﻿@model Domain.Entities.Dentista
+@{
+    ViewData["Title"] = "Criar dentista";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar Dentista</h1>
+</div>
+
+
+<form asp-controller="DentistaWeb" asp-action="Adcionar" method="post">
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Cpf</label>
+        <input type="text" asp-for="cpf" class="form-control" placeholder="Digite o cpf do Dentista">
+        @Html.ValidationMessageFor(x => x.cpf)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Numero Cro</label>
+        <input type="text" asp-for="numero_cro" class="form-control" placeholder="Digite o Numeor CRO do Dentista">
+        @Html.ValidationMessageFor(x => x.numero_cro)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Nome Dentista</label>
+        <input type="text" asp-for="nome" class="form-control" placeholder="Digite o nome do Dentista">
+        @Html.ValidationMessageFor(x => x.nome)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Telefone</label>
+        <input type="text" asp-for="telefone" class="form-control" placeholder="Digite o telefone do Dentista">
+        @Html.ValidationMessageFor(x => x.telefone)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Email</label>
+        <input type="text" asp-for="email" class="form-control" placeholder="Digite o email do Dentista">
+        @Html.ValidationMessageFor(x => x.email)
+    </div>
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="DentistaWeb" role="button">Voltar</a>
+
+</form>

@@ -1,0 +1,19 @@
+﻿@model Domain.Entities.Fraude
+@{
+    ViewData["Title"] = "Excluir fraude";
+}
+<div class="text-center">
+    <h3>Realmente deseja apagar a fraude (@Model.tipo_fraude)?</h3>
+</div>
+<input type="hidden" asp-for="id_fraude" />
+
+<form asp-controller="FraudeWeb" asp-action="Excluir" method="post">
+    <input type="hidden" asp-for="id_fraude" />
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Excluir</button>
+    <a class="btn btn-primary btn-block" asp-action="Index" asp-controller="FraudeWeb" role="button">Cancelar exclusão</a>
+
+</form>
+

@@ -1,0 +1,35 @@
+﻿@model Domain.Entities.ContasPagar
+@{
+    ViewData["Title"] = "Atualizar contas pagar";
+}
+
+<div class="text-center">
+    <h1 class="display-4">atualizar contas pagar</h1>
+</div>
+
+
+<form asp-controller="ContasPagarWeb" asp-action="Atualizar" method="post">
+
+    <input type="hidden" asp-for="id_conta_pagar" />
+    <div class="form-group">
+        <label for="nome" class="form-label">Valor</label>
+        <input type="text" asp-for="valor" class="form-control" placeholder="Digite o valor para ser pago">
+        @Html.ValidationMessageFor(x => x.valor)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Data Emissao</label>
+        <input type="text" asp-for="data_emissao" class="form-control" placeholder="Digite a data de Emisao">
+        @Html.ValidationMessageFor(x => x.data_emissao)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Data Vencimento</label>
+        <input type="text" asp-for="data_vencimento" class="form-control" placeholder="Digite o vencimento">
+        @Html.ValidationMessageFor(x => x.data_vencimento)
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="ContasPagarWeb" role="button">Voltar</a>
+
+</form>

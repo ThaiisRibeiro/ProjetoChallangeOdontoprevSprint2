@@ -1,0 +1,19 @@
+﻿@model Domain.Entities.ContasReceber
+@{
+    ViewData["Title"] = "Excluir Contas Receber";
+}
+<div class="text-center">
+    <h3>Realmente deseja apagar esta conta a receber (@Model.valor)?</h3>
+</div>
+<input type="hidden" asp-for="id_conta_receber" />
+
+<form asp-controller="ContasReceberWeb" asp-action="Excluir" method="post">
+    <input type="hidden" asp-for="id_conta_receber" />
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Excluir</button>
+    <a class="btn btn-primary btn-block" asp-action="Index" asp-controller="ContasReceberWeb" role="button">Cancelar exclusão</a>
+
+</form>
+

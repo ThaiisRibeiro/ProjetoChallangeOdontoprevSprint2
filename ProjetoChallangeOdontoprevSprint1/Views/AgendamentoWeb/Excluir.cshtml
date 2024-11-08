@@ -1,0 +1,19 @@
+﻿@model Domain.Entities.Agendamento
+@{
+    ViewData["Title"] = "Excluir Agendamento";
+}
+<div class="text-center">
+    <h3>Realmente deseja apagar o agendamento (@Model.data_agendamento)?</h3>
+</div>
+<input type="hidden" asp-for="id_agendamento" />
+
+<form asp-controller="AgendamentoWeb" asp-action="Excluir" method="post">
+    <input type="hidden" asp-for="id_agendamento" />
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Excluir</button>
+    <a class="btn btn-primary btn-block" asp-action="Index" asp-controller="AgendamentoWeb" role="button">Cancelar exclusão</a>
+
+</form>
+

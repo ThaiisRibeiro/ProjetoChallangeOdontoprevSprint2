@@ -1,0 +1,18 @@
+﻿@model Domain.Entities.Dentista
+@{
+    ViewData["Title"] = "Excluir dentista";
+}
+<div class="text-center">
+    <h3>Realmente deseja apagar o Dentista (@Model.nome)?</h3>
+</div>
+<input type="hidden" asp-for="id_dentista" />
+
+<form asp-controller="DentistaWeb" asp-action="Excluir" method="post">
+    <input type="hidden" asp-for="id_dentista" />
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Excluir</button>
+    <a class="btn btn-primary btn-block" asp-action="Index" asp-controller="DentistaWeb" role="button">Cancelar exclusão</a>
+
+</form>

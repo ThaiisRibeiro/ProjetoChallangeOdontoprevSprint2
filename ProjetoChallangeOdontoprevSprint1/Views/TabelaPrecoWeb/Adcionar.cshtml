@@ -1,0 +1,36 @@
+﻿@model Domain.Entities.TabelaPreco
+@{
+    ViewData["Title"] = "Criar Tabela preco";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar tabela preco</h1>
+</div>
+
+
+<form asp-controller="TabelaPrecoWeb" asp-action="Adcionar" method="post">
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Nome Procedimento</label>
+        <input type="text" asp-for="nome_procedimento" class="form-control" placeholder="Digite o nome do procedimento">
+        @Html.ValidationMessageFor(x => x.nome_procedimento)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Valor</label>
+        <input type="text" asp-for="valor" class="form-control" placeholder="Digite o valor do procedimetno">
+        @Html.ValidationMessageFor(x => x.valor)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Descricao</label>
+        <input type="text" asp-for="descricao" class="form-control" placeholder="Digite a descricao do procendimeto">
+        @Html.ValidationMessageFor(x => x.descricao)
+    </div>
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="PacienteWeB" role="button">Voltar</a>
+
+</form>

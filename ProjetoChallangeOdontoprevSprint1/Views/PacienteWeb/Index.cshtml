@@ -1,0 +1,81 @@
+﻿@model List<Domain.Entities.Paciente>
+@{
+    ViewData["Title"] = "Listagem de Pacientes";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" asp-controller="PacienteWeb" asp-action="Adcionar" role="button">Adicionar novo paciente</a>
+    </div>
+
+    <br />
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <br />
+
+    <h1 class="display-4">Listagem de pacientes</h1>
+
+    <table id="table-Paciente" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Cpf Cnpj</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Endereco</th>
+                <th scope="col">Tipo Paciente</th>
+               
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var Paciente in Model)
+                {
+                    <tr>
+                        <th scope="row">@Paciente.id_paciente</th>
+                        <td>@Paciente.nome</td>
+                        <td>@Paciente.senha</td>
+                        <td>@Paciente.cpf_cnpj</td>
+                        <td>@Paciente.email</td>
+                        <td>@Paciente.telefone</td>
+                        <td>@Paciente.endereco</td>
+                        <td>@Paciente.tipo_paciente</td>
+                        
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Atualizar" asp-controller="PacienteWeb" asp-route-id="@Paciente.id_paciente" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="Excluir" asp-controller="PacienteWeb" asp-route-id="@Paciente.id_paciente" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum Paciente encontrado</td></tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

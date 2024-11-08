@@ -1,0 +1,75 @@
+﻿@model List<Domain.Entities.ContasReceber>
+@{
+    ViewData["Title"] = "Listagem de contas receber";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" asp-controller="ContasReceberWeb" asp-action="Adcionar" role="button">Adicionar nova conta a receber</a>
+    </div>
+
+    <br />
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <br />
+
+    <h1 class="display-4">Listagem de Contas a Receber</h1>
+
+    <table id="table-Paciente" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Valor a Receber</th>
+                <th scope="col">Data Emissao</th>
+                <th scope="col">Data Vencimento</th>
+              
+               
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var ContasReceber in Model)
+                {
+                    <tr>
+                        <th scope="row">@ContasReceber.id_conta_receber</th>
+                        <td>@ContasReceber.valor</td>
+                        <td>@ContasReceber.data_emissao</td>
+                        <td>@ContasReceber.data_vencimento</td>
+                       
+                        
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Atualizar" asp-controller="ContasReceberWeb" asp-route-id="@ContasReceber.id_conta_receber" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="Excluir" asp-controller="ContasReceberWeb" asp-route-id="@ContasReceber.id_conta_receber" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum Conta Paciente encontrada </td></tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

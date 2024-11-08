@@ -1,0 +1,29 @@
+﻿@model Domain.Entities.Agendamento
+@{
+    ViewData["Title"] = "Atualizar Agendamento";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar Agendamento</h1>
+</div>
+
+
+<form asp-controller="AgendamentoWeb" asp-action="Atualizar" method="post">
+
+    <input type="hidden" asp-for="id_agendamento" />
+    <div class="form-group">
+        <label for="data agendamento" class="form-label">Data Agendamento</label>
+        <input type="text" asp-for="data_agendamento" class="form-control" placeholder="Digite a data de agentamento">
+        @Html.ValidationMessageFor(x => x.data_agendamento)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Data do Atendimento</label>
+        <input type="text" asp-for="data_atendimento" class="form-control" placeholder="Digite a data do atendimento">
+        @Html.ValidationMessageFor(x => x.data_atendimento)
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="AgendamentoWeb" role="button">Voltar</a>
+
+</form>

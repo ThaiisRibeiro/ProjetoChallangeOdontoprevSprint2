@@ -1,0 +1,30 @@
+﻿@model Domain.Entities.Fraude
+@{
+    ViewData["Title"] = "Fraude ";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar Fraude</h1>
+</div>
+
+
+<form asp-controller="FraudeWeb" asp-action="Adcionar" method="post">
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Tipo Fraude</label>
+        <input type="text" asp-for="tipo_fraude" class="form-control" placeholder="Digite o tipo da fraude">
+        @Html.ValidationMessageFor(x => x.tipo_fraude)
+    </div>
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Descricao</label>
+        <input type="text" asp-for="descricao" class="form-control" placeholder="Digite a Descricao da fraude">
+        @Html.ValidationMessageFor(x => x.descricao)
+    </div>
+
+
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="FraudeWeb" role="button">Voltar</a>
+
+</form>
